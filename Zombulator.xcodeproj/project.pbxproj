@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F90812DF1EA8146300BBAD68 /* Zombie.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90812DE1EA8146300BBAD68 /* Zombie.swift */; };
+		F90812E11EA8147200BBAD68 /* Human.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90812E01EA8147200BBAD68 /* Human.swift */; };
 		F9E6E6571E95AADF009EC50E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E6E6561E95AADF009EC50E /* AppDelegate.swift */; };
 		F9E6E6591E95AADF009EC50E /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F9E6E6581E95AADF009EC50E /* GameScene.sks */; };
 		F9E6E65B1E95AADF009EC50E /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = F9E6E65A1E95AADF009EC50E /* Actions.sks */; };
@@ -29,6 +31,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F90812DE1EA8146300BBAD68 /* Zombie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Zombie.swift; sourceTree = "<group>"; };
+		F90812E01EA8147200BBAD68 /* Human.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Human.swift; sourceTree = "<group>"; };
 		F9E6E6531E95AADF009EC50E /* Zombulator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zombulator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9E6E6561E95AADF009EC50E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9E6E6581E95AADF009EC50E /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -92,6 +96,8 @@
 				F9E6E6631E95AADF009EC50E /* Assets.xcassets */,
 				F9E6E6651E95AADF009EC50E /* LaunchScreen.storyboard */,
 				F9E6E6681E95AADF009EC50E /* Info.plist */,
+				F90812DE1EA8146300BBAD68 /* Zombie.swift */,
+				F90812E01EA8147200BBAD68 /* Human.swift */,
 			);
 			path = Zombulator;
 			sourceTree = "<group>";
@@ -211,6 +217,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9E6E65D1E95AADF009EC50E /* GameScene.swift in Sources */,
+				F90812DF1EA8146300BBAD68 /* Zombie.swift in Sources */,
+				F90812E11EA8147200BBAD68 /* Human.swift in Sources */,
 				F9E6E65F1E95AADF009EC50E /* GameViewController.swift in Sources */,
 				F9E6E6571E95AADF009EC50E /* AppDelegate.swift in Sources */,
 			);
@@ -420,6 +428,7 @@
 				F9E6E6781E95AADF009EC50E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F9E6E6791E95AADF009EC50E /* Build configuration list for PBXNativeTarget "ZombulatorTests" */ = {
 			isa = XCConfigurationList;
@@ -428,6 +437,7 @@
 				F9E6E67B1E95AADF009EC50E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
