@@ -22,22 +22,15 @@ class GameScene: SKScene {
     private var zombieCount = 0
     private var humanCount = 0
     
+    private var populationNode : SKNode?
+    
     override func sceneDidLoad() {
-
         self.lastUpdateTime = 0
-        
-        // Create shape node to use during mouse interaction
         let w = (self.size.width + self.size.height) * 0.008
         self.prototypeNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
         
-//        if let prototypeNode = self.prototypeNode {
-//            //prototypeNode.lineWidth = 1
-//            
-//            //prototypeNode.run(SKAction.repeatForever(SKAction.rotate(byAngle: CGFloat(M_PI), duration: 1)))
-////            prototypeNode.run(SKAction.sequence([SKAction.wait(forDuration: 0.5),
-////                                              SKAction.fadeOut(withDuration: 0.5),
-////                                              SKAction.removeFromParent()]))
-//        }
+        populationNode = SKNode()
+        addChild(populationNode!)
         
         for _ in 0..<totalPopulation {
             let probability = arc4random_uniform(5)
@@ -63,7 +56,8 @@ class GameScene: SKScene {
         if let zombieNode = prototypeNode?.copy() as! SKShapeNode? {
             zombieNode.position = CGPoint(x: randomX(), y: randomY(min: self.size.height * 0.25, max: self.size.height / 2))
             zombieNode.strokeColor = SKColor.green
-            addChild(zombieNode)
+            zombieNode.name = "Zombie"
+            populationNode!.addChild(zombieNode)
         }
     }
     
@@ -71,7 +65,7 @@ class GameScene: SKScene {
         if let humanNode = prototypeNode?.copy() as! SKShapeNode? {
             humanNode.position = CGPoint(x: randomX(), y: randomY(min: self.size.height / -2, max: self.size.height * -0.25))
             humanNode.strokeColor = SKColor.purple
-            addChild(humanNode)
+            populationNode!.addChild(humanNode)
         }
     }
 
@@ -84,11 +78,26 @@ class GameScene: SKScene {
         return min + CGFloat(arc4random_uniform(UInt32(max - min)))
     }
     
+    private func oneOrMinusOneOrZero() -> CGFloat {
+        let result = CGFloat(arc4random_uniform(3))
+        if result == 0 {
+            return -1
+        } else if result == 1 {
+            return 1
+        } else {
+            return 0
+        }
+    }
+    
     override func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered
+        for node in populationNode!.children {
+            if node.name == "Zombie" {
+                node.position = CGPoint(x: node.position.x + oneOrMinusOneOrZero(), y: node.position.y - 1)
+            }
+        }
         
         // Initialize _lastUpdateTime if it has not already been
-        if (self.lastUpdateTime == 0) {
+        if self.lastUpdateTime == 0 {
             self.lastUpdateTime = currentTime
         }
         
